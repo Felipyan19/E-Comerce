@@ -1,10 +1,11 @@
+import { Layout } from '../../Components/Layout'
 function Home() {
 
     return (
      
-        <div className='bg-red-100'>
+        <Layout className='bg-red-100'>
          soy Home
-        </div>
+        </Layout>
     )
   }
   

@@ -1,11 +1,12 @@
-function App() {
+import { Layout } from '../../Components/Layout'
+function MyAccount() {
 
     return (
      
-        <div className='bg-red-100'>
+        <Layout className='bg-red-100'>
          soy Mycount
-        </div>
+        </Layout>
     )
   }
   
-  export default App
+  export default MyAccount
