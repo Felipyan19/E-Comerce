@@ -11,13 +11,14 @@ function Home() {
     }, [])
     return (
      
-        <Layout className='bg-red-100'>
-        my home
-        {
-            items && items.map(item=>(
-                <Card key={item.id} item={item} />
-            ))
-        }
+        <Layout>
+        <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
+            {
+                items && items.map(item=>(
+                    <Card key={item.id} data={item} />
+                ))
+            }
+        </div>
         </Layout>
     )
   }
