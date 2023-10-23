@@ -107,7 +107,7 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          🛒 {context.count}
+          🛒 {context.cartProducts.length}
         </li>
       </ul>
     </nav>
