@@ -11,8 +11,11 @@ const CheckoutSideMenu = () => {
         context.setCartProducts(filteredProducts)
     }
     const handleCheckout = () => {
+        const date = new Date();
+        const dateString = date.toString().split(' ')[1] + ' ' + date.toString().split(' ')[2] + ' ' + date.toString().split(' ')[3] + ' ' + date.toString().split(' ')[4];
+        
         const orderToAdd = {
-            date: new Date(),
+            date: dateString,
             products: context.cartProducts,
             totalProducts: context.cartProducts.length,
             totalPrice: totalPrice(context.cartProducts),
