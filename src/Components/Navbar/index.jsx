@@ -6,6 +6,69 @@ const Navbar = () => {
   const context = useContext(ShoppingCartContext)
   const activeStyle = 'underline underline-offset-4'
 
+  const signOut = localStorage.getItem('signOut')
+  const parsedSignOut = JSON.parse(signOut)
+  const isUserSignOut = context.signOut || parsedSignOut
+
+  const handleSignOut = () => {
+    const strinifiedSignOut = JSON.stringify(true)
+    localStorage.setItem('signOut', strinifiedSignOut)
+    context.setSignOut(true)
+  }
+
+  const renderView = () => {
+    if(isUserSignOut){
+      return (
+        <li>
+          <NavLink
+            to='/sign-in'
+            onClick={() => handleSignOut()}
+            className={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
+            Sign Out
+          </NavLink>
+        </li>
+      )
+    }else{
+      return(
+        <>
+        <li className='text-black/60'>
+          Andres@Dev
+        </li>
+        <li>
+          <NavLink
+            to='/my-orders'
+            className={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
+            My Orders
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/my-account'
+            className={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
+            My Account
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to='/sing-in'
+            className={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }
+            onClick={() => handleSignOut()}>
+            Sign In
+          </NavLink>
+        </li>
+        </>
+      )
+    }
+  }
+
   return (
     <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light'>
       <ul className='flex items-center gap-3'>
@@ -76,36 +139,7 @@ const Navbar = () => {
         </li>
       </ul>
       <ul className='flex items-center gap-3'>
-        <li className='text-black/60'>
-          Andres@Dev
-        </li>
-        <li>
-          <NavLink
-            to='/my-orders'
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            My Orders
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/my-account'
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            My Account
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to='/sing-in'
-            className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-            Sign In
-          </NavLink>
-        </li>
+      {renderView()}
         <li>
           🛒 {context.cartProducts.length}
         </li>
