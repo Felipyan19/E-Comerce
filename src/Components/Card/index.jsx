@@ -1,13 +1,31 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
+/**
+ * Generates the function comment for the given function body.
+ *
+ * @param {object} prop - the prop object passed to the Card component
+ * @return {JSX.Element} - the JSX element representing the Card component
+ */
 const Card = (prop) => {
   const context = useContext(ShoppingCartContext)
 
+  /**
+   * Shows the product by opening the product detail and setting the product to show.
+   *
+   * @param {type} productDetail - the details of the product to be shown
+   * @return {type} undefined
+   */
   const showProduct = (productDetail) => {
     context.openProductDetail()
     context.setProductToShow(productDetail)
   }
 
+  /**
+   * Adds products to cart.
+   *
+   * @param {Event} event - The event object.
+   * @param {Product} product - The product to be added to the cart.
+   */
   const addProductsToCart = (event, product) => {
     event.stopPropagation()
     context.setCount(context.count + 1)
@@ -15,6 +33,12 @@ const Card = (prop) => {
     context.openCheckoutSideMenu()
   }
 
+  /**
+   * Renders an icon based on the provided ID.
+   *
+   * @param {number} id - The ID of the icon to render.
+   * @return {JSX.Element} The rendered icon as a JSX element.
+   */
   const renderIcon = (id) => {
     const isInCart = context.cartProducts?.find( item => item.id === id)
     if (isInCart) {
@@ -45,7 +69,7 @@ const Card = (prop) => {
            {renderIcon(prop.data.id)}
         </div>
       </figure>
-      <p className='flex justify-between'>
+      <p className='flex justify-between items-center'>
         <span className='text-sm font-light'>{prop.data.title}</span>
         <span className='text-lg font-medium'>${prop.data.price}</span>
       </p>

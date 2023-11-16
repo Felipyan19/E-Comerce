@@ -1,3 +1,12 @@
+/**
+ * Renders an orders card component.
+ *
+ * @param {Object} props - The properties passed to the component.
+ * @param {string} props.dateOrder - The date of the order.
+ * @param {number} props.totalPrice - The total price of the order.
+ * @param {number} props.totalProducts - The total number of products in the order.
+ * @return {JSX.Element} - The rendered orders card component.
+ */
 const OrdersCard = (props) => {
   const { dateOrder, totalPrice, totalProducts } = props
 

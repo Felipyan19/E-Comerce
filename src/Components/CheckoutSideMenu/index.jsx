@@ -4,12 +4,28 @@ import { ShoppingCartContext } from '../../Context'
 import { OrderCard } from '../../Components/OrderCard'
 import { totalPrice } from '../../utils'
 import './styles.css'
+/**
+ * Generates the side menu for the checkout process.
+ *
+ * @return {JSX.Element} The side menu component.
+ */
 const CheckoutSideMenu = () => {
     const context = useContext(ShoppingCartContext)
+    /**
+     * Deletes a product from the cart based on the provided ID.
+     *
+     * @param {number} id - The ID of the product to be deleted.
+     * @return {undefined} This function does not return a value.
+     */
     const handleDelete = (id) => {
         const filteredProducts = context.cartProducts.filter(item => item.id !== id)
         context.setCartProducts(filteredProducts)
     }
+    /**
+     * Handles the checkout process.
+     *
+     * @return {undefined} No return value.
+     */
     const handleCheckout = () => {
         const date = new Date();
         const dateString = date.toString().split(' ')[1] + ' ' + date.toString().split(' ')[2] + ' ' + date.toString().split(' ')[3] + ' ' + date.toString().split(' ')[4];

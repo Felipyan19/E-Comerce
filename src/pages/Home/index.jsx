@@ -3,9 +3,19 @@ import { Layout } from '../../Components/Layout'
 import { ShoppingCartContext } from '../../Context'
 import { Card } from '../../Components/Card'
 import { ProductDetail } from '../../Components/ProductDetail'
+/**
+ * Renders the view based on the context data.
+ *
+ * @return {JSX.Element} The rendered view.
+ */
 function Home() {
     const context = useContext(ShoppingCartContext)
   
+    /**
+     * Renders the view based on the filtered items in the context.
+     *
+     * @return {ReactElement} The rendered view.
+     */
     const renderView = () => {
 
         if (context.filteredItems?.length > 0) {

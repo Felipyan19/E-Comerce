@@ -1,3 +1,14 @@
+/**
+ * Renders an order card with the given props.
+ *
+ * @param {Object} props - The props for the order card.
+ * @param {string} props.id - The ID of the order.
+ * @param {string} props.title - The title of the order.
+ * @param {number} props.price - The price of the order.
+ * @param {string} props.imgUrl - The URL of the order image.
+ * @param {function} props.handleDelete - The function to handle order deletion (optional).
+ * @return {JSX.Element} - The rendered order card.
+ */
 const OrderCard = (props) => {
     const { id, title, price, imgUrl, handleDelete } = props
 

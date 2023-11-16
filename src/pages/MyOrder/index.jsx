@@ -3,6 +3,11 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { ShoppingCartContext } from "../../Context"
 import { OrderCard } from "../../Components/OrderCard"
+/**
+ * Renders the `MyOrder` component.
+ *
+ * @return {JSX.Element} The rendered component.
+ */
 function MyOrder() {
 
     const context = useContext(ShoppingCartContext)

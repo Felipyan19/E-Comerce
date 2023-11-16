@@ -1,6 +1,11 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
 import './styles.css'
+/**
+ * Renders the product detail component.
+ *
+ * @return {JSX.Element} The product detail component.
+ */
 const ProductDetail = () => {
     const context = useContext(ShoppingCartContext)
 

@@ -4,6 +4,11 @@ import { Layout } from "../../Components/Layout"
 import { ShoppingCartContext } from '../../Context'
 import { OrdersCard } from "../../Components/OrdesCard"
 
+/**
+ * Renders the MyOrders component.
+ *
+ * @return {JSX.Element} The rendered JSX.Element of MyOrders component.
+ */
 function MyOrders() {
 
     const context = useContext(ShoppingCartContext)
